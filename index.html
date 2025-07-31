@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whac a Mole</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="game.css">
+    <script src="game.js" defer></script> <!-- Added defer to ensure JS loads after HTML -->
+</head>
+<body>
+    <div id="titleScreen">
+        <h1>ZOMBIE GARDEN</h1>
+        <h2>Objective of the Game:</h2>
+        <p>Tap the Witches to score points! Avoid the Zombie!</p>
+        
+        <h2>Character List</h2>
+        <ul>
+            <li>Wicked Witch - Tap to score points!</li>
+            <li>Zombie - Avoid tapping!</li>
+        </ul>
+        
+        <button id="startGameBtn">Start Game</button>
+    </div>
+    <h1>"ZOMBIE GARDEN"</h1>
+    <h2>WHACK THE WICKED WITCH</h2>
+    <h1 id="score">Score: 0</h1> <!-- Updated to include "Score: " -->
+    <h1 id="level">Level: 1</h1> <!-- Added level display -->
+    
+    <!-- 3x3 board -->
+    <div id="board"></div>
+
+    <!-- Audio for shooting sound -->
+    <audio id="shootSound" src="shoot-sound.mp3" preload="auto"></audio>
+    <!-- Audio for background music -->
+    <audio id="backgroundMusic" loop>
+        <source src="bg-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Audio for game over sound -->
+    <audio id="gameOverSound" src="witch laugh.mp3" preload="auto"></audio>
+
+    <!-- Crosshair image -->
+    <img id="crosshair" src="crosshair.png" alt="Crosshair">
+
+
+    <div id="gameOverPopup" class="popup">
+        <div class="popup-content">
+            <h2>Game Over!</h2>
+            <p id="finalScore">Final Score: 0</p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: url("./bg-picture.webp") no-repeat center center fixed;
+    background-size: cover;
+}
+#titleScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Ensure it's above other content */
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px); /* Bounce effect */
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+.shoot {
+    animation: shootEffect 0.4s ease-out forwards;
+    transform-origin: center;
+}
+
+@keyframes shootEffect {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(1.5); }
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popIn {
+    animation: popIn 0.4s ease-in-out;
+}
+
+#crosshair {
+    width: 40px; /* Adjust based on your crosshair size */
+    height: 40px;
+    position: absolute;
+    pointer-events: none; /* Prevent it from interfering with clicks */
+    display: none; /* Initially hidden */
+}
+
+#board {
+    width: 90vw; /* Responsive width */
+    max-width: 540px; /* Maximum width */
+    height: 90vw; /* Responsive height */
+    max-height: 540px; /* Maximum height */
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    background: url("./soil-picture.jpg") no-repeat center center;
+    background-size: cover;
+    border: 3px solid white;
+    border-radius: 25px;
+}
+
+#board div {
+    width: 33.33%; /* Divide board into 3 equal columns */
+    height: 33.33%; /* Divide board into 3 equal rows */
+    background-image: url("./pipe.png");
+    background-size: cover;
+    position: relative; /* Ensure children can be positioned absolutely */
+}
+
+#board div img {
+    width: 100px;
+    height: 100px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) rotate(180deg); /* Fly upward and rotate */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) rotate(360deg); /* Final position */
+        opacity: 0; /* Fade out */
+    }
+}
+
+.falling {
+    animation: flyUp 1s ease forwards; /* Apply the flying effect */
+}
+
+h1, h2, h3 {
+    color: rgb(255, 51, 0); /* Set text color */
+    font-family: 'Creepster', cursive; /* Apply horror-themed font */
+    letter-spacing: 2px; /* Add spacing between letters */
+    line-height: 1.2; /* Adjust the line spacing */
+    font-size: 3em; /* Increase font size, adjust as needed */
+}
+
+
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 0, 0, 0.8); /* Semi-transparent red */
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it's above other elements */
+}
+/* Popup Content Styles */
+.popup-content {
+    text-align: center;
+}
+
+/* Popup Title Styles */
+.popup h2 {
+    color: white; /* White color for the Game Over title */
+}
+
+/* Popup Text Styles */
+.popup p {
+    color: white; /* White text for the final score */
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: green; /* Green color for Play Again button */
+    color: white; /* White text for the button */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: darkgreen; /* Darker green on hover */
+}
+
